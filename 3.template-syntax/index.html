@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Template syntax</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="vue-app">
+      <p>Name: {{ name}}</p>
+      <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+      <div v-bind:id="dynamicId">Dynamic ID</div>
+      <p v-on:click="handleClick">Age: {{ age }}</p>
+      <a v-bind:[attr]="url">Google</a>
+      <form v-on:submit.prevent="onSubmit">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+
+  <script src="app.js"></script>
+</html>

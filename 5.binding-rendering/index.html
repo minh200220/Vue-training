@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Template syntax</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="vue-app">
+      <div
+        class="static"
+        v-bind:class="{ active: isActive, 'text-danger': hasError }"
+      >
+        Class binding 1
+      </div>
+      <div v-bind:class="classObject">Class binding 2</div>
+    </div>
+
+    <div id="vue-app2">
+      <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
+        Style binding 1
+      </div>
+      <div v-bind:style="styleObject">Style binding 2</div>
+    </div>
+
+    <div id="vue-app3">
+      <div v-if="type === 'A'">A</div>
+      <div v-else-if="type === 'B'">B</div>
+      <div v-else-if="type === 'C'">C</div>
+      <div v-else>Not A/B/C</div>
+      <h1 v-show="ok">Hello!</h1>
+    </div>
+
+    <ul id="example-1">
+      <li v-for="item in items" :key="item.message">{{ item.message }}</li>
+    </ul>
+
+    <ul id="v-for-object" class="demo">
+      <li v-for="value in object">{{ value }}</li>
+    </ul>
+
+    <div id="vue-app4">
+      <li v-for="todo in todos" v-if="todo.isComplete">{{ todo.name }}</li>
+      <ul v-if="todos.length">
+        <li v-for="todo in todos">{{ todo.name }}</li>
+      </ul>
+      <p v-else>No todos left!</p>
+
+      <p v-on:click="handleClick">Age: {{ age }}</p>
+    </div>
+
+    <div id="vue-app5">
+      <div>
+        <input v-model="message" placeholder="edit me" />
+        <p>Message is: {{ message }}</p>
+      </div>
+      <div>
+        <input type="checkbox" id="checkbox" v-model="checked" />
+        <label for="checkbox">{{ checked }}</label>
+      </div>
+      <select v-model="selected">
+        <option disabled value="">Please select one</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      <span>Selected: {{ selected }}</span>
+    </div>
+  </body>
+
+  <script src="app.js"></script>
+</html>
